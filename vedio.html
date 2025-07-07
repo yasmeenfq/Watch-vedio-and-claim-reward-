@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Video Reward App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .video-container {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin: 15px;
+      padding: 15px;
+      width: 320px;
+      text-align: center;
+    }
+
+    iframe {
+      width: 100%;
+      height: 180px;
+      display: none;
+      border-radius: 10px;
+    }
+
+    .play-btn {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .play-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .claimed {
+      background-color: green !important;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🎥 Watch Videos & Claim Rewards</h2>
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY?enablejsapi=1"></iframe>
+    <button class="play-btn" onclick="handleButton(this)">Click Video</button>
+  </div>
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1"></iframe>
+    <button class="play-btn" onclick="handleButton(this)">Click Video</button>
+  </div>
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/oHg5SJYRHA0?enablejsapi=1"></iframe>
+    <button class="play-btn" onclick="handleButton(this)">Click Video</button>
+  </div>
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/9bZkp7q19f0?enablejsapi=1"></iframe>
+    <button class="play-btn" onclick="handleButton(this)">Click Video</button>
+  </div>
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/L_jWHffIx5E?enablejsapi=1"></iframe>
+    <button class="play-btn" onclick="handleButton(this)">Click Video</button>
+  </div>
+
+  <script>
+    function handleButton(btn) {
+      const iframe = btn.previousElementSibling;
+      
+      if (btn.innerText === "Click Video") {
+        iframe.src += "&autoplay=1";
+        iframe.style.display = "block";
+        btn.innerText = "Claim Reward 🎁";
+      } 
+      else if (btn.innerText === "Claim Reward 🎁") {
+        btn.innerText = "Claimed ✅";
+        btn.classList.add("claimed");
+        btn.disabled = true;
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+
+
